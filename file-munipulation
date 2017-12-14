@@ -1,0 +1,13 @@
+mv oldname.desktop newname.desktop /*rename a file equals moving it to a new file*/
+
+
+cat Qt-Creator.desktop /*show contents in Qt-Creator.desktop*/
+
+
+du [-a][-h] + filename /*show chosen file's disk usage
+			 -a:show all file in current dierctory
+			 -h:human readable*/
+
+
+watch [-n] + [command|file] /*execute a command or file periodically
+			      -n:set interval with second as unit*/

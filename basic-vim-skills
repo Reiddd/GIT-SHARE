@@ -1,0 +1,64 @@
+>$ vimtutor /*open the tutor*/
+-------
+
+[h][j][k][l] /*to move in the normal mode*/
+
+
+[esc] /*to enter the normal mode, normal mode is when you can only read*/
+
+
+:q! /*type this in normal mode to exit while those change you make will not be saved*/
+:wq /*type this in normal mode to exit while those change you make will be saved*/
+
+
+[x] /*to delete character when in normal mode*/
+
+
+[a] /*append sentences from where your cursor is, this is different from insert mode, 
+      [a] does append while insert mode will overwrite*/
+
+
+[dw] /*delete the whole word : 
+       in normal mode, move the cursor to the beginning of the word you want to delete,
+       then type dw*/
+
+
+[d$] /*delete the whole sentence : 
+       in normal mode, move the cursor to the beginning of the sentence you want to delete,
+       then type d$*/
+
+
+[dd] /*delete a whole line:
+       in normal mode, move the cursor to anywhere inside the sentence you want to delete,
+       then type dd*/
+
+
+[u] /*undo the last command*/
+
+
+[ctrl]+[g] /*show the file path, location in the file*/
+
+
+[/]+pattern /*search the pattern in file after your cursor location and move the cursor to it*/
+
+
+[%] /*move cursor to corresponding parenthesis:
+      move cursor to the chosen parenthesis first, then type %*/
+
+:!cd path /*:! allows you to run a external command, such as change directory*/
+
+:w filename /*write out the whole file,
+              mostly be used with the command above to choose location*/
+
+
+[v] /*visual mode:
+      move cursor will highlight sentence*/
+
+
+[y] /*copy the highlight part and return to normal mode*/
+
+
+[p] /*paste thing after the cursor*/
+
+
+set nu /*show row index*/
