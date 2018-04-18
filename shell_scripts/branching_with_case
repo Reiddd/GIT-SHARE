@@ -1,0 +1,34 @@
+# !~/Documents/shell_scripts/branching_with_case
+# an example of case used in shell script.
+
+echo "enter 0:\n"
+read NUM
+
+cat<<_EOF_
+
+usage:
+
+case variable in
+	pattern1) command1
+			  exit 0
+			  ;;
+	pattern2) command2
+			  exit 0
+			  ;;
+			  
+	......
+	
+	*) command
+	   exit 1
+	   ;;
+esac
+_EOF_
+
+case $NUM in
+	0) echo "you entered 0."
+	   exit 0
+	   ;;
+	*) echo "you didn't enter 0."
+	   exit 0
+	   ;;
+esac

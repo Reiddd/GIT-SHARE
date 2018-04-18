@@ -1,0 +1,9 @@
+1. ip addr show
+# show ip address and sub  web info.
+
+
+2. ip route show
+# show rout info.
+
+
+3. ip help

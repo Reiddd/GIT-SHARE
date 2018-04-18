@@ -1,0 +1,5 @@
+cal /*show calendar*/
+
+free -bht /*show memory and swap usage*/
+
+df -h /*show disk usage*/

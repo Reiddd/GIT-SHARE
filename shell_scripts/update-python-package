@@ -1,0 +1,1 @@
+pip list --outdated|grep "^[a-z]* ("|cut -d " " -f 1|xargs pip --default-timeout=100 install -U

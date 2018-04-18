@@ -1,0 +1,26 @@
+cat<<_EOF_
+usage:
+
+for variable [in words];do
+	commands
+done
+
+_EOF_
+
+
+echo "for i in A B C D;do echo \$i;done"
+
+for i in A B C D;do
+	echo $i
+done
+echo "\n\n"
+
+
+echo "for i in \$PWD;do echo i;done"
+
+for i in "$PWD"/*;do
+	echo $i
+done
+
+
+

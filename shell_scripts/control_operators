@@ -1,0 +1,10 @@
+# !~/Documents/shell_scripts/control_operators
+# an example of combining control operators and commands.
+
+true && echo "only when pre-command is executed successfully, this sentence will be print."
+
+false || echo "only when pre-command failed to execute, this sentence will be print."
+
+# some examples:
+# [ -d temp_dir ] || mkdir temp_dir
+# [ -r temp_file ] && vim temp_file
