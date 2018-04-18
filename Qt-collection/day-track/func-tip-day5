@@ -1,0 +1,44 @@
+QTextEdit::find(string pattern, QTextDocument::FindFlag);
+/*
+  QTextDocument::FindFlag : 
+  1. QTextDocument::FindWholeWords
+  2. QTextDocument::FindBackward
+  3. QTextDocument::FindCaseSensitive
+*/
+
+
+QTextStream::QTextStream(QFile* );
+/*
+  init from a pointer to QFile object
+*/
+
+
+QString QTextStream::readAll();
+/*
+  return QString object
+  read the whole file in one string
+*/
+
+
+bool QFile::open(QIODevice::OpenMode);
+/*
+  return bool object
+*/
+
+
+QTextEdit::setPlainText(QString&);
+QTextEdit::toPlainText();
+/*
+  transform QTextEdit to QString
+*/
+
+
+QFileDialog::getOpenFileName(QWidget* , QString cap, QString default_dir)
+QFileDialog::getSaveFileName(QWidget* , QString cap, QString default_dir)
+/*
+  QFileDialog::getSaveFileName() don't need the chosen file exist
+*/
+
+
+QFile::flush();
+QFile::close();

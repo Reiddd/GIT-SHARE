@@ -1,0 +1,16 @@
+QGraphicsScene::addEllipse(qint32 x, qint32 y, qint32 width, qint32 height);
+
+
+QPen is part of QPainter
+
+
+QPainter::drawPixmap(qint32 x, qint32 y, qint32 width, qint32 height,QPixmap pixmap_object);
+/*
+  painting has to overload QPainter::paintEvent()
+*/
+
+
+static void QTimer::singleShot(int millsecond, QObject* receiver,memberFunc);
+/*
+  invoke the memberFunc every chosen millsecond
+*/

@@ -1,0 +1,49 @@
+/*an abstract of Qt's basic components*/
+
+1. QtCore:
+	core-non-GUI- function, needed for all other components.
+	includes animation framework, timer, containers, class about 
+	date-time, event, I/O, shortcuts, smart pointer, graphic, thread, 
+	XML.
+
+
+2. QtGui:
+	provides basic GUI functions.
+	it includes window, event, OpenGL, font, 2d and 3D effects.
+
+
+3. QtMultimedia:
+	provides video, audio, radio, camera functions.
+	to include it in projects, "QT += multimedia" should be added into 
+	the .pro file.
+
+
+4. QtNetwork:
+	provides cross-platform network functions.
+	to include it in projects, "QT += network" should be added into 
+	the .pro file.
+
+
+5. QtQml:
+	basiclly, it provides C++ API to QML.
+	to includes it in projects, "QT += qml" should be added into 
+	the .pro file.
+
+
+6. QtQuick:
+	provides animations effects functions highly suitable for 
+	mobile platform.
+	to include it in projects, "QT += quick" should be added into 
+	the .pro file.
+
+
+7. QtSql:
+	provides API to interact with databases.
+	to include it in projects, "QT += sql" should be added into 
+	the .pro file.
+
+
+8. QtTest:
+	provides unit test functions.
+	to include it in projects, "QT += test" should be added into 
+	the .pro file.

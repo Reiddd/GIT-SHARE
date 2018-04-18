@@ -1,0 +1,50 @@
+QObject::connect(button_pointer, &QPushButton::clicked, QWidget_pointer, &QWidget::close);
+/*
+  '&className::funcName'
+  no SIGNAL() \ SLOT()
+*/
+
+
+QPushButton::setText("text on button");
+
+
+QWidget::setStyleSheet("background:blue");
+QWidget::setStyleSheet("color:red");
+/*
+  color : font color
+  font-size : 
+  font-weight : like 'bold'
+  different declaration is seperated by ';'
+*/
+
+
+QWidget::setWindowFlags(Qt::windowFlag);
+/*
+  Qt::windowMinMaxButtonsHint : it's 'Buttons'
+  Qt::windowCloseButtonHint : it's 'Button'
+*/
+
+
+QMouseEvent::globalPos()
+/*
+  return a QPoint object pointing out it's location on the window
+*/
+
+
+QMouseEvent::globalX()
+QMouseEvent::globalY()
+/*
+  like above
+*/
+
+
+QPoint::x() \ QPoint::y()
+/*
+  return x_axis \ y_axis
+*/
+
+
+QWidget::move(determined_x_axis, determined_y_axis);
+/*
+  take a pair of int to determine the final location
+*/

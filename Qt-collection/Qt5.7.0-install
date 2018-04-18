@@ -1,0 +1,45 @@
+/*Qt5.7.0 download and setting*/
+
+-------
+
+/*download*/
+wget http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run
+
+
+/*install*/
+sudo chmod 777 qt-opensource-linux-x64-5.7.0.run
+
+./qt-opensource-linux-x64-5.7.0.run
+
+
+/*with g++ && openGL already exist,jump to the .desktop file setting*/
+cd /usr/share/applications
+
+touch Qt-Creator.desktop
+
+nano Qt-Creator.desktop
+-------
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=QtCreator
+Comment=QtCreator
+NoDsiplay=true
+Exec=/home/reid/Qt5.7.0/Tools/QtCreator/bin/qtcreator %f
+Icon=/home/ried/Qt5.7.0/5.7/Src/qtdoc/doc/image/landing/icon_QtCreator_78x78px.png
+Name[en_US]=Qt-Creator
+-------
+
+sudo chmod 777 defaults.list
+
+nano defaults.list
+-------
+/*add*/
+text/qtcreator=Qt-Creator.desktop
+-------
+
+sudo chmod 755 defaults.list
+
+sudo update-mime-database /usr/share/mime
+

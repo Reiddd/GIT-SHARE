@@ -1,0 +1,59 @@
+QWidget::update()
+/*
+  add a paintEvent to the next loop, repaint the widget
+*/
+
+
+QTimer* timer = new QTimer(this);
+QTimer::start(misc);
+QObject::connect(timer,&QTimer::timeout,this,QWidget::update);
+/*
+  1. declare a timer
+  2. start the timer with misc interval
+  3. bind the timeout() with update
+*/
+
+
+QWidget::height()
+QWidget::width()
+/*
+  return current widget's height and width
+*/
+
+
+QPainter::rotate(qreal angle);
+
+
+QTime::hour()
+QTime::minute()
+QTime::second()
+
+
+QGridLayout grid = new QGridLayout;
+QgridLayout::addWidget();
+
+
+QRadioButton::QRadioButton(QString text);
+QRadioButton::setChecked(true);
+/*
+  QRadioButton is exclusive by default, so there can only have one button checked one time
+*/
+
+
+QGroupBox::setCheckable(bool );
+
+
+QGroupBox::setFlat(bool );
+/*
+  false by default, set it true to make the box without frame
+*/
+
+
+QWidget::setLayout(QLayout* );
+QGroupBox::setLayout(QLayout* )
+
+
+QCheckBox::setTristate(bool );
+/*
+  false by default, set it true to make the box have three states
+*/

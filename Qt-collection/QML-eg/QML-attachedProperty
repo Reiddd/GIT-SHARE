@@ -1,0 +1,42 @@
+/*
+  attached property is only linked to one object, not it and all it children.
+
+  to access the property, we need to declare [delegate] at the begining.
+*/
+import QtQuick 2.0
+
+ListView{
+	width: 240
+	height: 320
+	model: 3
+	
+	delegate: Rectangle{
+		width: 100
+		height: 30
+		color: ListView.isCurrentItem ? "red" : "yellow"
+	}
+}
+
+
+/*
+  this block below won't work, cause the [delegate] only work on the root [Item] not it's child[Rectangle].
+
+  import QtQucik 2.0
+
+  ListView{
+  	  width: 240
+  	  height: 320
+  	  model: 3
+  	  
+  	  delegate: Item{
+  	  	  width: 100
+  	  	  height: 30
+  	  	  
+  	  	  Rectangle{
+  	  	  	  width: 100
+  	  	  	  height: 30
+  	  	  	  color: ListView.isCurrentItem ? "red" : "yellow"
+  	  	  }
+  	  }
+  }
+*/
