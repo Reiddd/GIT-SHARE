@@ -1,0 +1,90 @@
+<html>
+<head>
+	<style>
+		div.white{
+			background-color: white;
+			color: black;
+			margin: 20px;
+			padding: 20px;
+		}
+		div.black{
+			background-color: black;
+			color: white;
+			margin: 20px;
+			padding: 20px;
+		}
+		span.bold{
+			color: red;
+			font-size: 150%;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align:center">part-7: customize the admin form</h1>
+	
+	<div class="white">
+		<h2>1. customize the Choice model</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/admin.py</p>
+		<blockquote><pre><code>
+			<b># edit the file like this:</b>
+			......
+			from .models import Choice
+			......
+			
+			admin.site.register(Choice)
+			......
+		</code></pre></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>2. customize the Question model</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/admin.py</p>
+		<blockquote><pre><code>
+			<b># edit the file like this:</b>
+			
+			from django.contrib import admin
+			from .models import Question
+			
+			class ChoiceInline(admin.TabularInline): <b># there is also admin.StackedInline</b>
+				model = Choice
+				extra = 3
+			
+			class QuestionAdmin(admin.ModelAdmin):
+			fieldsets = [
+				(None, {'fields': ['question_text']}),
+				('Date infomation', {'fields': ['pub_date'], 'classed': ['collapse']}),
+			]
+			
+			inlines = [ChoiceInline]
+			list_display = ('question_text', 'pub_date', 'was_published_recently')
+			list_filter = ['pub_date']
+			search_fields = ['question_text']
+			
+			
+			admin.site.register(Question, QuestionAdmin)
+		</code></pre></blockquote>
+		<p>inherit admin.ModelAdmin to customize the model's look</p>
+	</div>
+	
+	<div class="white">
+		<h2>3. edit the Question model</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/models.py</p>
+		<blockquote><pre><code>
+			<b># edit the file like this:</b>
+			
+			......
+			class Question(models.Model):
+				......
+				def was_published_recently(self):
+					now = timezone.now()
+					return now - datetime.timedelta(days = 1) <= self.pub_date <= now
+				
+				was_published_recently.admin_order_field = 'pub_date'
+				was_published_recently.boolean = True
+				was_published_recently.short_description = 'Published recently?'
+			......
+		</code></pre></blockquote>
+	</div>
+</body>
+</html>

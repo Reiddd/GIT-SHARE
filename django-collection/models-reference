@@ -1,0 +1,220 @@
+<html>
+<head>
+	<meta charset = "utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+</head>
+
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Field Options</h1>
+			<p>keyword arguments in models classes</p>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Field.null</h2>
+				<code>... null = True ...</code>
+				<p>database could store Null value in this field</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>Field.blank</h2>
+				<code>... blank = True ...</code>
+				<p>this field can be empty in forms, but couldn't be null in database</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>Field.choices</h2>
+				<code>...<br/>gender_choice = (('M','male'),('F','female'))<br/>choices = gender_choice<br/>...</code>
+				<p>this will show a select in forms</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Field.default</h2>
+				<code>...<br/>def info_default():return {"email": "294950369@qq.com"}<br/>default = info_default</code>
+				<p>default must be a function, and can't be lambada</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>Field.editable</h2>
+				<code>... editable = False ...</code>
+				<p>this field won't be shown in forms</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>Field.primary_key</h2>
+				<code>... primary_key = True ...</code>
+				<p>it equals 'null = False, unique = True'</p>
+				<p>only one field could be primary key in a class</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Field.unique</h2>
+				<code>... unique = True</code>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Field Types</h1>
+			<p>different type of fields</p>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>AutoField</h2>
+				<code>class AutoField(**option)[source]</code>
+				<p>an IntegerField that automatically increments itself</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>BigAutoField</h2>
+				<code>class BigIntegerField(**option)[source]</code>
+				<p>an BigIntegerField fits numbers from 1 to 9223372036854775807</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>BooleanField</h2>
+				<code>class BooleanField(**option)[source]</code>
+				<p>the default form widget for this BooleanField is CheckboxInput</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>IntegerField</h2>
+				<code>class IntegerField(**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>BigIntegerField</h2>
+				<code>class BigIntegerField(**option)[source]</code>
+				<p>it fits numbers between -9223372036854775808 and 9223372036854775807</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>DecimalField</h2>
+				<code>class DecimalField(max_digits=None, dicimal_places=None,**option)[source]</code>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>DateField</h2>
+				<code>class DateField(auto_now = False, auto_now_add = False, **option)[source]</code>
+				<p><b>auto_now</b>: automatically set field to now everytime the model is saved.<br/><b>auto_now_add</b>: automaticlly set field to now when created.</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>DateTimeField</h2>
+				<code>class DateTimeField(auto_now=False,auto_now_add=False,**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>DurationField</h2>
+				<code>class DurationField(**option)[source]</code>
+				<p>datetime.timedelta type</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>CharField</h2>
+				<code>class CharField(max_length = 254, **option)[source]</code>
+				<p>the default form widget for CharField is TextInput</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>EmailField</h2>
+				<code>class EmailField(max_length=254, **options)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>FileField</h2>
+				<code>class FileField(upload_to=None,max_length=100,**option)[source]</code>
+				<p><b>upload_to</b>: the upload directory and file name</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>FloatField</h2>
+				<code>class FloatField(**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>GenericIPAddressField</h2>
+				<code>class GenericIPAddressField(protocol='both',unpack_ipv4=False,**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>NullBooleanField</h2>
+				<code>class NullBooleanField(**options)[source]</code>
+				<p>use this instead of BooleanField with null=True</p>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				<h2>TextField</h2>
+				<code>class TextField(**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>TimeField</h2>
+				<code>class TimeField(auto_now=False,auto_now_add=False,**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>URLField</h2>
+				<code>class URLField(max_length=200,**option)[source]</code>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Relationship Fields</h1>
+			<p>relationship between models</p>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h2>ForeignKey</h2>
+				<code>class ForeignKey(to, on_delete, **option)[source]</code>
+				<p>on_delete: CASCADE, PROTECT<br/>CASCADE will delete object contain ForeignKey when parent is deleted</p>
+				<p>one parent could have many children</p>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>ManyToManyField</h2>
+				<code>class ManyToManyField(to,**option)[source]</code>
+			</div>
+			
+			<div class="col-md-4">
+				<h2>OneToOneField</h2>
+				<code>class OneToOneField(to,on_delete,parent_link=False,**option)[source]</code>
+			<div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4">
+				
+			</div>
+		</div>
+	</div>
+</body>
+</html>

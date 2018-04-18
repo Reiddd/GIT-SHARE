@@ -1,0 +1,63 @@
+*** Starting uWSGI 2.0.16 (64bit) on [Sun Feb 18 23:40:48 2018] ***
+compiled with version: 5.4.0 20160609 on 18 February 2018 07:14:46
+os: Linux-4.13.0-32-generic #35~16.04.1-Ubuntu SMP Thu Jan 25 10:13:43 UTC 2018
+nodename: reid-HP-Spectre-Notebook
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/reid/Documents/py-eg/django-collection/django-eg/myblog/uwsgi
+writing pidfile to /home/reid/Documents/py-eg/django-collection/django-eg/myblog/uwsgi/uwsgi.pid
+detected binary path: /home/reid/anaconda3/bin/uwsgi
+dropping root privileges as early as possible
+chdir() to /home/reid/Documents/py-eg/django-collection/django-eg/myblog/
+your processes number limit is 31183
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /home/reid/Documents/py-eg/django-collection/django-eg/myblog/myblog.sock fd 3
+dropping root privileges after socket binding
+Python version: 3.6.3 |Anaconda, Inc.| (default, Oct 13 2017, 12:05:00)  [GCC 7.2.0]
+Python main interpreter initialized at 0x158f550
+dropping root privileges after plugin initialization
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 1117336 bytes (1091 KB) for 10 cores
+*** Operational MODE: preforking ***
+added /home/reid/Documents/py-eg/django-collection/django-eg/myblog/ to pythonpath.
+added /home/reid/Documents/py-eg/django-collection/django-eg/myblog/myblog/ to pythonpath.
+added /home/reid/Documents/py-eg/django-collection/django-eg/myblog/blog/ to pythonpath.
+ModuleNotFoundError: No module named '/home/reid/Documents/py-eg/django-collection/django-eg/myblog/django'
+unable to load app 0 (mountpoint='') (callable not found or import error)
+failed to open python file /home/reid/Documents/py-eg/django-collection/django-eg/myblog/django.wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+dropping root privileges after application loading
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 25666)
+spawned uWSGI worker 1 (pid: 25668, cores: 1)
+spawned uWSGI worker 2 (pid: 25669, cores: 1)
+spawned uWSGI worker 3 (pid: 25670, cores: 1)
+spawned uWSGI worker 4 (pid: 25671, cores: 1)
+spawned uWSGI worker 5 (pid: 25672, cores: 1)
+spawned uWSGI worker 6 (pid: 25673, cores: 1)
+spawned uWSGI worker 7 (pid: 25674, cores: 1)
+spawned uWSGI worker 8 (pid: 25675, cores: 1)
+spawned uWSGI worker 9 (pid: 25676, cores: 1)
+spawned uWSGI worker 10 (pid: 25677, cores: 1)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 0 seconds
+worker 2 buried after 0 seconds
+worker 3 buried after 0 seconds
+worker 4 buried after 0 seconds
+worker 5 buried after 0 seconds
+worker 6 buried after 0 seconds
+worker 7 buried after 0 seconds
+worker 8 buried after 0 seconds
+worker 9 buried after 0 seconds
+worker 10 buried after 0 seconds
+goodbye to uWSGI.
+VACUUM: pidfile removed.
+VACUUM: unix socket /home/reid/Documents/py-eg/django-collection/django-eg/myblog/myblog.sock removed.

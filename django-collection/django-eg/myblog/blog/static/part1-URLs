@@ -1,0 +1,111 @@
+<html>
+<head>
+	<style>
+		div.black{
+			background-color: black;
+			color: white;
+			margin: 20px;
+			padding: 20px;
+		}
+		div.white{
+			background-color: white;
+			color: black;
+			margin: 20px;
+			padding: 20px;
+		}
+		span.bold{
+			color: red;
+			font-size: 150%;
+			font-family: verdana;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align:center">part-1 : URLs</h1>
+	<div class="white">
+		<h2>1. create project</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/</p>
+		<blockquote><span class="bold">$ django-admin startproject mysite</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>2. test server</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">$ python manage.py runserver 0:8000</span></blockquote>
+		<p> try <b>http://localhost:8000</b> in the explorer.</p>
+	</div>
+	
+	<div class="white">
+		<h2>3. create application</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">$ python manage.py startapp polls</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>4. rewrite polls/views.py</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/views.py</p>
+		<blockquote>
+			<pre>
+			<code>
+				<b># write file like this:</b>
+				from django.http import HttpResponse
+			
+				def index(request):
+					return HttpReponse('Hello. You're now at the polls index')
+			</code>
+			</pre>
+		</blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>5. create polls/urls.py</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/</p>
+		<blockquote><span class="bold">$ touch urls.py</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>6. rewrite polls/urls.py</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/urls.py</p>
+		<blockquote>
+			<pre>
+			<code>
+				<b># write file like this:</b>
+				from django.urls import path
+				from . import views
+				
+				urlpatterns = [
+					path('', views.index, name="index")
+				]
+			</code>
+			</pre>
+		</blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>7. rewrite mysite/urls.py</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/mysite/urls.py</p>
+		<blockquote>
+			<pre>
+			<code>
+				<b># edit file like this:</b>
+				from django.urls import include, path
+				from django.contrib import admin
+				
+				urlpatterns = [
+					path('polls/', include('polls.urls')),
+					path('admin/', admin.site.urls)
+				]
+			</code>
+			</pre>
+		</blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>8. test server</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">$ python manage.py runserver 0:8000</span></blockquote>
+		<p>try <b>http://localhost:8000/polls/</b> in the explorer</p>
+	</div>
+</body>
+</html>

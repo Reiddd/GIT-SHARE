@@ -1,0 +1,72 @@
+<html>
+<head>
+	<style>
+		div.white{
+			background-color: white;
+			color: black;
+			margin: 20px;
+			padding: 20px;
+		}
+		div.black{
+			background-color: black;
+			color: white;
+			margin: 20px;
+			padding: 20px;
+		}
+		span.bold{
+			color: red;
+			font-size: 150%;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align:center">part-8: customize the project's templates</h1>
+	
+	<div class="white">
+		<h2>1. create templates directory</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">
+			$ mkdir templates<br/>
+			$ mkdir templates/polls<br/>
+			$ mkdir templates/polls/admin
+		</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>2. edit settings</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/mysite/settings.py</p>
+		<blockquote><pre><code>
+			<b>find the 'TEMPLATES' in the settings, add 'DIRS' into it</b>
+			
+			......
+			'DIRS': [os.path.join(BASE_DIR, 'templates')]
+			......
+		</code></pre></blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>3. find the html file in django</h2>
+		<p><b>dir :&nbsp</b>no restriction</p>
+		<blockquote><span class="bold">
+			$ python -c "import django;print(django.__path__)" | cut -c 3 | cut -d "'" -f 1
+		</span></blockquote>
+		<p>
+		it might look like this:<br/>
+		<b>/home/reid/anaconda3/lib/python3.6/site-packages/Django-2.0.20py3.6.egg/django</b><br/>
+		go to this directory
+		</p>
+		<blockquote><span class="bold">
+			$ cd contrib/admin/templates<br/>
+			$ cp base_site.html ~/Documents/py-eg/django-collection/django-eg/mysite/templates/polls/admin/base_site.html
+		</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>4. edit the html file</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/templates/polls/admins/base_site.html</p>
+		<p>replace the <b>{{site_header|default:_('Django administration')}}</b></p>
+		<p><b>the same approach can be used to other web pages</b></p>
+	</div>
+</body>
+</html>

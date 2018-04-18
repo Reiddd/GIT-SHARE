@@ -1,0 +1,152 @@
+<html>
+<head>
+	<style>
+		div.white{
+			background-color: white;
+			color: black;
+			margin: 20px;
+			padding: 20px;
+		}
+		div.black{
+			background-color: black;
+			color: white;
+			margin: 20px;
+			padding: 20px;
+		}
+		span.bold{
+			color: red;
+			font-size: 150%;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align:center">part-2: Database</h1>
+	
+	<div class="white">
+		<h2>1. set prefered database</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/mysite/settings.py</p>
+		<ol>
+			<li>change the engine,options list below:</li>
+				<ul>
+					<li>django.db.backends.sqlite3 ( default )</li>
+					<li>django.db.backends.postgresql</li>
+					<li>django.db.backends.mysql</li>
+					<li>django.db.backends.oracle</li>
+				</ul>
+			<li>specify your database's NAME, USER, PASSWORD, HOST, PORT</li>
+			<li>append the INSTALLED_APPS:</li>
+				<ul><li>polls.apps.PollsConfig</li></ul>
+		</ol>
+	</div>
+	
+	<div class="black">
+		<h2>2. create models</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/models.py</p>
+		<blockquote>
+			<pre><code>
+				<b># write the file like this:</b>
+				
+				import datetime
+				from django.db import models
+				from django.utils import timezone
+				
+				class Question(models.Model):
+					question_text = models.CharField(max_length = 200)
+					pub_date = models.DateTimeField('date published')
+					
+					def __str__(self):
+						return self.question_text
+					
+					def was_published_recently(self):
+						return self.pub_date >= timezone.now() - dateime.timedelta(days = 1)
+				
+				class Choice(models.Model):
+					qusetion = models.ForeignKey(Question, on_delete = models.CASCADE)
+					choice_text = models.CharField(max_length = 200)
+					votes = models.IntegerField(default = 0)
+					
+					def __str__(self):
+						return self.choice_text
+			</code></pre>
+		</blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>3. makemigrations</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">
+			$ python manage.py makemigrations polls
+		</span></blockquote>
+		<p>to check what sql commands have been run, type:</p>
+		<blockquote><span class="bold">
+			$ python manage.py sqlmigrate polls 0001
+		</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>4. migrate</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">
+			$ python manage.py migrate
+		</span></blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>5. open the django python shell</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">
+			$ python manage.py shell
+		</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>6. create records in shell</h2>
+		<p><b>dir :&nbsp</b>python shell</p>
+		<blockquote>
+			<pre><code>
+				<b># try these commands</b> 
+				
+				&gt&gt&gt from polls.models import Question, Choice
+				
+				&gt&gt&gt Question.objects.all()
+				&ltQuerySet []&gt
+				
+				&gt&gt&gt q=Question(question_text = "what's up?", pub_date = timezone.now())
+				&gt&gt&gt q.save()
+				&gt&gt&gt Question.onjects.all()
+				&ltQuerySet [&ltQuestion: what's up&gt]&gt
+				
+				&gt&gt&gt Question.objects.get(id=1)
+				&ltQuestion: what's up&gt
+				
+				&gt&gt&gt Question.objects.filter(question_text = "what's up")
+				&ltQuerySet [&ltQuestion: what's up&gt]&gt
+				
+				&gt&gt&gt q.was_published_rencently()
+				True
+				
+				&gt&gt&gt q.choice_set.all()
+				&ltQuerySet []&gt
+				
+				&gt&gt&gt q.choice_set.create(choice_text = 'not much', votes = 0)
+				&ltChoice: not much&gt
+				&gt&gt&gt q.choice_set.create(choice_text = 'the sky', votes = 0)
+				&ltChoice: the sky&gt
+				&gt&gt&gt q.choice_set.create(choice_text = 'just hacking again', votes = 0)
+				&ltChoice: just hacking again&gt
+				
+				&gt&gt&gt q.choice_set.count()
+				3
+				
+				&gt&gt&gt c = q.choice_set.get(id = 3)
+				&gt&gt&gt c.question
+				&ltQuestion: what's up&gt
+				
+				&gt&gt&gt q.choice_set.get(id = 1).question
+				&ltQuestion: what's up&gt
+			</code></pre>
+		</blockquote>
+	</div>
+</body>
+</html>

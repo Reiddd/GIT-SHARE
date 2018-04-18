@@ -1,0 +1,120 @@
+<html>
+<head>
+	<style>
+		div.white{
+			background-color: white;
+			color: black;
+			margin: 20px;
+			padding: 20px;
+		}
+		div.black{
+			background-color: black;
+			color: white;
+			margin: 20px;
+			padding: 20px;
+		}
+		span.bold{
+			color: red;
+			font-size: 150%;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 style="text-align:center">part-4: views and templates</h1>
+	
+	<div class="white">
+		<h2>1. create templates directory</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">
+			$ mkdir polls/templates<br/>
+			$ mkdir polls/templates/polls
+		</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>2. edit views</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/views.py</p>
+		<blockquote><pre><code>
+			<b># edit views.py like this:</b>
+			
+			from django.http import HttpResponse
+			from django.shortcuts import render, get_object_or_404, get_list_or_404
+			from .models import Question
+			
+			def index(request):
+				question_list = Question.objects.order_by('-pub_date')[:5]
+				context = {
+					'question_list': question_list,
+				}
+				return render(request, 'polls/index.html', context)
+				
+			def detail(request, question_id):
+				question = get_object_or_404(Question, pk = question_id) # pk : Primary Key
+				context = {
+					'question': question,
+				}
+				return render(request, 'polls/detail.html', context)
+			
+			def results(request, question_id):
+				.......
+			.......
+		</code></pre></blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>3. create templates file</h2>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/</p>
+		<blockquote><span class="bold">
+			$ touch polls/templates/polls/index.html<br/>
+			$ touch polls/templates/polls/detail.html
+		</span></blockquote>
+	</div>
+	
+	<div class="black">
+		<h2>4. write templates</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/templates/polls/index.html</p>
+		<blockquote><pre><code>
+			<b># write file like this:</b>
+			
+			{% if question_list %}
+				&ltul&gt
+					{% for question in question_list %}
+						&ltli&gt&lta href="/polls/{{question.id}}/"&gt{{question.question_text}}&lt/a&gt&lt/li&gt
+					{% endfor%}
+				&lt/ul&gt
+			{% else %}
+				&ltp&gtNo polls are available.&lt/p&gt
+			{% endif %}
+		</code></pre></blockquote>
+		<p><b>dir :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/templates/polls/detail.html</p>
+		<blockquote><pre><code>
+			<b># write file like this:</b>
+			&lth1&gt{{question.question_text}}&lt/h1&gt
+			&ltul&gt
+				{% for choice in question.choice_set.all %}
+					&ltli&gt{{choice.choice_text}}&lt/li&gt
+				{% endfor %}
+			&lt/ul&gt
+		</code></pre></blockquote>
+	</div>
+	
+	<div class="white">
+		<h2>5. edit polls/urls.py</h2>
+		<p><b>file :&nbsp</b>home/Documents/py-eg/django-collection/django-eg/mysite/polls/urls.py</p>
+		<blockquote><pre><code>
+			<b># edit file like this:</b>
+			
+			from django.urls import path
+			from . import views
+			
+			urlpatterns = [
+				path('', views.index, name = 'index'),
+				path('&ltint:question_id&gt/', views.detail, name = 'detail'),
+				path('&ltint:question_id&gt/results/', views.results, name = 'results'),
+				path('&ltint:question_id&gt/vote/', views.vote, name = 'vote'),
+			]
+		</code></pre></blockquote>
+	</div>
+</body>
+</html>
