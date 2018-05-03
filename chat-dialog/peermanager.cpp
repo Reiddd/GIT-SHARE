@@ -70,8 +70,8 @@ bool PeerManager::isLocalHostAddress(const QHostAddress& address)
 void PeerManager::sendBroadcastDatagram()
 {
     QByteArray datagram(username);
-    datagram.append('@');
-    datagram.append(QByteArray::number(serverPort));
+    datagram.append('@');                                                          // void       QByteArray::append(QString)
+    datagram.append(QByteArray::number(serverPort));                               // QByteArray QByteArray::number()
 
     bool validBroadcastAddress = true;
     for(QHostAddress& address : broadcastAddresses){
@@ -116,12 +116,14 @@ void PeerManager::updateAddresses()
     broadcastAddresses.clear();
     ipAddresses.clear();
 
-    for(QNetworkInterface& interface : QNetworkInterface::allInterfaces())
-        for(QNetworkAddressEntry entry : interface.addressEntries()){
-            QHostAddress broadcastAddress = entry.broadcast();
+    // equals to for(QHostAddress& ip : QNetworkInterface::allAddresses())
+    for(QNetworkInterface& interface : QNetworkInterface::allInterfaces())                        // QList<QNetworkInterface>    QNetworkInterface::allInterfaces()
+        for(QNetworkAddressEntry entry : interface.addressEntries()){                             /* QList<QNetworkAddressEntry> QNetworkInterface::addressEntries()
+                                                                                                     QNetworkAddressEntry contains one IP address and it's relavant netmask, broadcast address */
+            QHostAddress broadcastAddress = entry.broadcast();                                    // QHostAddress                QNetworkAddressEntry::broadcast()
             if(broadcastAddress != QHostAddress::Null && entry.ip() != QHostAddress::LocalHost){
                 broadcastAddresses << broadcastAddress;
-                ipAddresses        << entry.ip();
+                ipAddresses        << entry.ip();                                                 // QHostAddress                QNetworkAddressEntry::ip()
             }
         }
 }
