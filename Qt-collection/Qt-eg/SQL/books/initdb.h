@@ -55,7 +55,7 @@ QSqlError initDb()
     QSqlQuery q;
     if(!q.exec(QLatin1String("create table books(id     integer primary key, "
                                                 "title  varchar, "
-                                                "author integer,"
+                                                "author integer, "
                                                 "genre  integer, "
                                                 "year   integer, "
                                                 "rating integer )"))){ return q.lastError(); }

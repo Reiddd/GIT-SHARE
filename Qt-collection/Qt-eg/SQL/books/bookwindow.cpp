@@ -25,7 +25,7 @@ BookWindow::BookWindow(QWidget *parent)
 /* ------- create data model ------- */
 
     model = new QSqlRelationalTableModel(ui.bookTable);                                                 // ui.bookTable -> QTableView
-                                                                                                        // QSqlRelationalTableModel(QTableView )
+                                                                                                        // QSqlRelationalTableModel(QObject* parent = nullptr, QSqlDatabase db = QSqlDatabase())
     /* QSqlTableModel::OnFieldChange  : all changes in the model will be applied to the database immediately.
        QSqlTableModel::OnRowChange    : changes in the model will be applied to the database when user chooses different row.
        QSqlTableModel::OnManualSubmit : changes will only be applied to the database when submitAll() or revertAll() is called. */
@@ -60,7 +60,7 @@ BookWindow::BookWindow(QWidget *parent)
 /* ------- mapping model to gui ------- */
 
     ui.bookTable->setModel(model);                                                                      // void QTableView::setModel(QAbstractItemModel* )
-    ui.bookTable->setItemDelegate(new BookDelegate(ui.bookTable));                                   // void QAbstractItemView::setItemDelegate(QAbstractItemDelegate* )
+    ui.bookTable->setItemDelegate(new BookDelegate(ui.bookTable));                                      // void QAbstractItemView::setItemDelegate(QAbstractItemDelegate* )
     ui.bookTable->setColumnHidden(model->fieldIndex("id"), true);                                       // void QTableView::setColumnHidden(int collumn, bool hide)
     /* QAbstractItemView::SingleSelection     : when user selects an item, any selected items become unselected.
        QAbstractItemView::ContiguousSelection : based on SingleSelection, when clicking on an item with shift pressed, all items between the selected and the clicked will be selected or unselected depending on whether clicking select or unselect the item.
