@@ -37,8 +37,8 @@ public:
         request_.set(http::field::host, host);
         request_.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
-        resolver_.async_resolve(tcp::resolver::query(host, port),
-                                 std::bind(&Session::on_resolve, shared_from_this(), std::placeholders::_1, std::placeholders::_2));                               // void tcp::resolver::async_resolve(tcp::resolver::query, handle)
+        resolver_.async_resolve(tcp::resolver::query(host, port),                                                                                                    // void tcp::resolver::async_resolve(tcp::resolver::query, handle)
+                                 std::bind(&Session::on_resolve, shared_from_this(), std::placeholders::_1, std::placeholders::_2));                               // T* std::enable_shared_from_this<T>::shared_from_this()
     }
 
 
