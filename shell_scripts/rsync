@@ -1,1 +1,0 @@
-sudo rsync -av --delete [source1 source2 ... sourcen] [destination] 
