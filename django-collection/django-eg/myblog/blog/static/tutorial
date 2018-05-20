@@ -1,6 +1,0 @@
-<html>
-	<frameset cols="20%,80%">
-		<frame src="./index" noresize="noresize">
-		<frame src="./part1-URLs" noresize="noresize" name="showframe">
-	</frameset>
-</html>
